@@ -4,6 +4,9 @@ var createError  = require('http-errors'),
 	cookieParser = require('cookie-parser'),
 	logger 		 = require('morgan');
 
+// create connection pool for MongoDB
+require('./db').connect();
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
