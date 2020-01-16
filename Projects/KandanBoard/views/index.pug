@@ -7,22 +7,49 @@ block content
 			p.lead Welcome:) This is my Kanban Board which let me do my job better!
 			hr.my-4
 			p If you want to create new task, just push this button!
-			a.btn.btn-primary.btn-lg Add Task
+			.form-group
+				form(action='/createTask', method='post')
+					input.form-control(type='text', name='contents')
+					//- TODO: add padding between them //
+					button.btn.btn-success(type='submit') Add Task
+
 		.row
 			.col-md-4
-				h2 TO-DO
 				ul.list-group
+					li.list-group-item.active TO-DO
+						span.badge= todoTasks.length
 					each val in todoTasks
-						li.list-group-item= val
+						.input-group
+							li.list-group-item= val
+							.input-group-btn
+								form(action='/updateTask', method='post')
+									input(type='hidden', name='status', value='In-Progress')
+									//- TODO: adjust btn size //
+									button.btn.btn-info(type='submit', name='contents', value= val) <strong>></strong>
+									
 			.col-md-4
-				h2 In-Progress
 				ul.list-group
+					li.list-group-item.active In-Progress
+						span.badge= inProgressTasks.length
 					each val in inProgressTasks
-						li.list-group-item= val
+						.input-group
+							li.list-group-item= val
+							.input-group-btn
+								form(action='/updateTask', method='post')
+									input(type='hidden', name='status', value='Done')
+									//- TODO: adjust btn size //
+									button.btn.btn-info(type='submit', name='contents', value= val) <strong>></strong>
 
 			.col-md-4
-				h2 Done
 				ul.list-group
+					li.list-group-item.active Done
+						span.badge= doneTasks.length
 					each val in doneTasks
-						li.list-group-item= val
+						.input-group
+							li.list-group-item= val
+							.input-group-btn
+								form(action='/removeTask', method='post')
+									//- TODO: adjust btn size //
+									button.btn.btn-danger(type='submit', name='contents', value= val) D
+
 
