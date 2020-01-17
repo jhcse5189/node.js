@@ -66,8 +66,18 @@ exports.create = (req, res) => {
 
 exports.update = (req, res) => {
 
-};
+    // update tasks with new status
+    Task.update({
+        contents: req.body.contents
+    }, {
+        status: req.body.status
+    }, (err, numberAffected, raw) => {
+        if (err) throw err;
+        console.log(`document '%d' updated:`, numberAffected);
+        console.log(`raw response from MongoDB: `, raw);
+    });
 
-exports.remove = (req, res) => {
-
+    // display all tasks
+    res.redirect('/');
+    res.end();
 };
