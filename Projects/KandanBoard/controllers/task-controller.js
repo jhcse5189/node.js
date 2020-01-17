@@ -71,10 +71,24 @@ exports.update = (req, res) => {
         contents: req.body.contents
     }, {
         status: req.body.status
-    }, (err, numberAffected, raw) => {
+    }, (err, numberAffected) => {
         if (err) throw err;
-        console.log(`document '%d' updated:`, numberAffected);
-        console.log(`raw response from MongoDB: `, raw);
+        console.log('document updated: ', numberAffected);
+    });
+
+    // display all tasks
+    res.redirect('/');
+    res.end();
+};
+
+exports.remove = (req, res) => {
+
+    // remove task
+    Task.remove({
+        contents: req.body.contents
+    }, (err) => {
+        if (err) throw err;
+        console.log('document removed: {' + req.body.contents + '}');
     });
 
     // display all tasks

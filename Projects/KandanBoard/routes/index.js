@@ -7,6 +7,6 @@ var router = express.Router();
 router.get('/', task.list);
 router.post('/createTask', task.create);
 router.post('/updateTask', task.update);
-//router.post('/removeTask', task.remove);
+router.post('/removeTask', task.remove);
 
 module.exports = router;
