@@ -35,3 +35,39 @@ exports.list = (req, res) => {
         });
     });
 };
+
+exports.create = (req, res) => {
+
+    // check same task exists or doesn't, if exists, just skip
+    Task.find({contents: req.body.contents}, (err, tasks) => {
+        if (err) throw err;
+        
+        var newTask = true;
+        // check same task exists
+        if (tasks.length > 0) {
+            console.error('Therer are same contents already: ' + req.body.contents);
+            newTask = false;
+        }
+
+        // if new, save
+        if (newTask) {
+            new Task({
+                contents: req.body.contents,
+                author: req.body.author
+            }).save();
+            console.log('CREATE new task {' + req.body.contents + '}');
+        }
+    });
+
+    // display all tasks
+    res.redirect('/');
+    res.end();
+};
+
+exports.update = (req, res) => {
+
+};
+
+exports.remove = (req, res) => {
+
+};
