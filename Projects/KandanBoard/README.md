@@ -4,7 +4,7 @@
 ~~~
 $ vim README.md
 
-$ express . --view pug -y
+$ express . --view pug
 $ npm install --save mongoose
 $ npm install --save bootstrap
 $ npm install --save moment
