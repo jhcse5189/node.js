@@ -1,0 +1,13 @@
+html {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    line-height: 1.15;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    border-bottom-left-radius: 0.25rem;
+  }
+
+  
