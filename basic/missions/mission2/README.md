@@ -1,0 +1,4 @@
+- mk socket server and client
+- c -> s, connect
+- c -> s, send 'hi!' then s -> c, send 'hi!'
+- in c, stdout data from server.

@@ -1,0 +1,3 @@
+- in data.txt, data distinguished by space
+- read line by line, each data mush be distinguished by space
+- print on process.stdout or localhost:3000
