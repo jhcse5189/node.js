@@ -1,5 +1,5 @@
 /* app.js */
-// import express module
+// import modules
 const express = require('express'),
       http = require('http'),
       path = require('path');
@@ -11,7 +11,7 @@ const bodyParser = require('body-parser'),
 // creates a new router object
 var router = express.Router();
 
-// create express object
+// creates express object
 var app = express();
 // set the port as attr. of app object
 app.set('port', process.env.PORT || 3000);
@@ -25,20 +25,23 @@ app.use(bodyParser.json());
 app.use('/public', static(path.join(__dirname, 'public')));
 
 /* process req. at middlewares */
-// confirm parameter at middleware
 // register routing function
-router.route('/process/login').post(function(req, res) {
-    console.log(`process '/process/login'...`);
+router.route('/process/login/:name').post(function(req, res) {
+    console.log(`process '/process/login/:name'...`);
 
     req.user = 'bammer';
+    // a.k.a 'token'
+    var paramName = req.params.name;
+
     var paramId = req.body.id || req.query.id;
-    var paramPassword = req.body.password || req.query.password;
+    var paramPw = req.body.password || req.query.password;
 
     res.writeHead(200, {'Content-Type': 'text/html; charset=utf8'});
     res.write(`<h1>Response from express server's ${req.user}!</h1>`);
+    res.write(`<div><p>paramName: ${paramName}</p></div>`);
     res.write(`<div><p>paramId: ${paramId}</p></div>`);
-    res.write(`<div><p>paramPassword: ${paramPassword}</p></div>`);
-    res.write(`<br><br><a href='/public/login2.html'>Return to login page</a>`);
+    res.write(`<div><p>paramPw: ${paramPw}</p></div>`);
+    res.write(`<br><br><a href='/public/login3.html'>Return to login page</a>`);
     res.end();
 });
 
