@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Update Test</title>
+    </head>
+    <body>
+        <h1>Update User</h1>
+        <hr>
+        <!-- TODO: render using .pug -->
+        <h3>Hi, User!</h3>
+        <form method="POST" action="/process/updateuser">
+            <table>
+                <tr>
+                    <td><label>Name</label></td>
+                    <td><input type="text" name="name"></td>
+                </tr>
+                <tr>
+                    <td><label>Current Password</label></td>
+                    <td><input type="password" name="c_pw"></td>
+                </tr>
+                <tr>
+                    <td><label>New Password</label></td>
+                    <td><input type="password" name="n_pw"></td>
+                </tr>
+                <tr>
+                    <td><label>Check Again</label></td>
+                    <td><input type="password" name="c_n_pw"></td>
+                </tr>
+            </table>
+            <input type="submit" value="send" name="">
+            <input type="button" value="login" name="" class="btnUrl" onclick="btnUrl()">
+        </form>
+        <script>
+        function btnUrl() {
+            document.location.href = "/public/login.html";
+        }
+        </script>
+    </body>
+</html>

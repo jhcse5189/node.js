@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Login Test</title>
+    </head>
+    <body>
+        <h1>Login</h1>
+        <hr>
+        <form method="POST" action="/process/login">
+            <table>
+                <tr>
+                    <td><label>ID</label></td>
+                    <td><input type="text" name="id"></td>
+                </tr>
+                <tr>
+                    <td><label>Password</label></td>
+                    <td><input type="password" name="pw"></td>
+                </tr>
+            </table>
+            <input type="submit" value="send" name="">
+            <input type="button" value="register" name="" class="btnUrl" onclick="btnUrl()">
+        </form>
+        <script>
+        function btnUrl() {
+            document.location.href = "/public/adduser.html";
+        }
+        </script>
+    </body>
+</html>

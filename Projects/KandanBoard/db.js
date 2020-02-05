@@ -10,7 +10,7 @@ exports.connect = () => {
     db.on('connected', () => {
         console.log('connected: ' + URL);
     });
-    db.on('error', console.error.bind(console, 'connection error:'));
+    db.on('error', console.error.bind(console, 'mongoose connection error:)'));
     db.on('disconnected', () => {
         console.log('disconnected:');
     });

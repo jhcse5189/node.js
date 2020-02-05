@@ -1,8 +1,8 @@
 {
-  "name": "ch05_web_server",
+  "name": "ch06_database",
   "version": "1.0.0",
   "description": "",
-  "main": "001_simple.js",
+  "main": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -10,11 +10,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^3.0.7",
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
     "express": "^4.17.1",
     "express-error-handler": "^1.1.0",
     "express-session": "^1.17.0",
+    "mongodb": "^3.5.2",
+    "mongoose": "^5.8.11",
     "multer": "^1.4.2",
     "serve-static": "^1.14.1"
   }
