@@ -114,8 +114,8 @@ router.route('/process/login').post(function(req, res) {
         });
     } else { // else DB disconnected,
         res.writeHead(200, {'Content-Type': 'text/html; charset=utf8'});
-        res.write();
-        res.write();
+        res.write(`<h2>DB Disconnected</h2>`);
+        res.write(`<div><p>Can't connect to MongoDB</p><div>`);
         res.end();
     }
 

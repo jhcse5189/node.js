@@ -152,8 +152,8 @@ router.route('/process/login').post(function(req, res) {
         });
     } else { // else DB uninitialized / disconnected,
         res.writeHead(200, {'Content-Type': 'text/html; charset=utf8'});
-        res.write();
-        res.write();
+        res.write(`<h2>DB Disconnected</h2>`);
+        res.write(`<div><p>Can't connect to MongoDB</p><div>`);
         res.end();
     }
 
@@ -266,9 +266,9 @@ var authUser = function(db, id, pw, callback) {
 
         if (results.length > 0) {
             // 2. find b y pw
-            if (results[0]._doc.password === password) {
+            if (results[0]._doc.password === pw) {
                 console.log(`\tOK: found user with ${id}, ${pw}`);
-                callback(null, docs);
+                callback(null, results);
             } else {
                 console.log(`\tNOT FOUND: not found user`);
                 callback(null, null);
