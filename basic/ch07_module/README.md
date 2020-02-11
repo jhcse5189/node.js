@@ -43,9 +43,15 @@ Date:   Sat Feb 8 05:14:04 2020 +0900
     ch07. modulized app_seperated1.js
 ~~~
 
-- [ ] app_seperated2.js, config.js, ./database/db.js, ./database/user_schema.js, ./routes/route_loader.js, ./routes/user.js
+- [X] app_seperated2.js, config.js, ./database/db.js, ./database/user_schema.js, ./routes/route_loader.js, ./routes/user.js
 
+~~~
+commit 7e0079ab4d822d3313b6eff23a4ed4d220f09a6e (HEAD -> master, origin/master, origin/HEAD)
+Author: Bammer <jhcse5189@gmail.com>
+Date:   Tue Feb 11 17:31:41 2020 +0900
 
+    ch07. modulized app_seperated2.js
+~~~
 
 
 * * *
