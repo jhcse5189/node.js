@@ -34,6 +34,7 @@
 
 
 - [X] app_seperated1.js, ./routes/user.js, ./database/user_schema.js
+
 ~~~
 commit 5be97df162e9321f2b3c43f5a488984ec078e43a (HEAD -> master)
 Author: Bammer <jhcse5189@gmail.com>
@@ -41,6 +42,10 @@ Date:   Sat Feb 8 05:14:04 2020 +0900
 
     ch07. modulized app_seperated1.js
 ~~~
+
+- [ ] app_seperated2.js, config.js, ./database/db.js, ./database/user_schema.js, ./routes/route_loader.js, ./routes/user.js
+
+
 
 
 * * *

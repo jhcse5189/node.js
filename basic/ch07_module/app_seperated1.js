@@ -2,6 +2,8 @@
  * app.js | mongoose model with index & method
  *                         with hashed password
  * 
+ * seperate DB Schema and User routing function from app.js
+ * 
  * http://localhost:3000/public/login.html
  * http://localhost:3000/public/adduser.html
  * 

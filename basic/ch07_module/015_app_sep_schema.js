@@ -2,6 +2,8 @@
  * app_seperated1.js | mongoose model with index & method
  *                                    with hashed password
  * 
+ * seperate DB Schema and User routing function from app_seperated1.js
+ * 
  * http://localhost:3000/public/login.html
  * http://localhost:3000/public/adduser.html
  * 
@@ -9,10 +11,10 @@
  * @author Bammer
  */
 
- // import express modules
- const express = require('express'),
-       http = require('http'),
-       path = require('path');
+// import express modules
+const express = require('express'),
+      http = require('http'),
+      path = require('path');
 
 // import express middlewares
 const bodyParser = require('body-parser'),

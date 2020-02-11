@@ -18,12 +18,12 @@ let login = function(req, res) {
     console.log(`\trequest params: ${paramId}, ${paramPw}`);
 
     // ref. db object
-    var db = req.app.get('db');
+    var database = req.app.get('database');
 
-    console.dir(`test log for db.db:\n${db.db}`);
+    console.dir(`test log for db.db:\n${database.db}`);
 
-    if (db) { // if DB initialized / connected,
-        authUser(db, paramId, paramPw, function(err, docs) {
+    if (database) { // if DB initialized / connected,
+        authUser(database, paramId, paramPw, function(err, docs) {
             if (err) throw err;
 
             if (docs) { // if OK,
@@ -65,10 +65,10 @@ let adduser = function(req, res) {
     console.log(`\trequest params: ${paramId}, ${paramName}, ${paramPw}`);
 
     // ref. db object
-    var db = req.app.get('db');
+    var database = req.app.get('database');
 
-    if (db) { // if DB initialized / connected,
-        addUser(db, paramId, paramName, paramPw, function(err, addedUser) {
+    if (database) { // if DB initialized / connected,
+        addUser(database, paramId, paramName, paramPw, function(err, addedUser) {
             if (err) {
                 console.log(`\tERROR: when calling '/process/adduser'`);
                 console.log(err.stack);
@@ -113,11 +113,11 @@ let listuser = function(req, res) {
     console.log(`called '/process/listuser'`);
 
     // ref. db object
-    var db = req.app.get('db');
+    var database = req.app.get('database');
 
-    if (db) { // if DB initialized / connected,
+    if (database) { // if DB initialized / connected,
         // 1. select all users
-        db.UserModel.findAll(function(err, results) {
+        database.UserModel.findAll(function(err, results) {
             if (err) {
                 console.error(`\tLIST ERROR: ${err.stack}`);
 
@@ -162,10 +162,10 @@ let listuser = function(req, res) {
 
 
 // authUser function - compare id first, pw next
-var authUser = function(db, id, pw, callback) {
+var authUser = function(database, id, pw, callback) {
     console.log(`called 'authUser()' with ${id}, ${pw}`);
 
-    db.UserModel.findById(id, function(err, results) {
+    database.UserModel.findById(id, function(err, results) {
         // 1. find by id
         if (err) { // if error, callback & return err obj.
             callback(err, null);
@@ -174,7 +174,7 @@ var authUser = function(db, id, pw, callback) {
 
         if (results.length > 0) {
             // 2. find by pw - call authenticate method from model instance
-            var user = new db.UserModel({id: id});
+            var user = new database.UserModel({id: id});
             var authenticated = user.authenticate(pw, results[0]._doc.hashed_password);
 
             if (authenticated) {
@@ -193,10 +193,10 @@ var authUser = function(db, id, pw, callback) {
 }
 
 // addUser function
-var addUser = function(db, id, name, pw, callback) {
+var addUser = function(database, id, name, pw, callback) {
     console.log(`called 'addUser()' with ${id}, ${name}, ${pw}`);
 
-    db.UserModel.find({'id': id}, function(err, docs) {
+    database.UserModel.find({'id': id}, function(err, docs) {
         assert.equal(err, null);
 
         if (docs.length > 0) {
@@ -208,7 +208,7 @@ var addUser = function(db, id, name, pw, callback) {
         } else {
 
             // create UserModel instance
-            var user = new db.UserModel({'id': id, 'name': name, 'password': pw});
+            var user = new database.UserModel({'id': id, 'name': name, 'password': pw});
 
             // add user with id, name, pw
             user.save(function(err, user) {
