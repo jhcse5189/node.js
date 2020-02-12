@@ -7,12 +7,38 @@
         <title>Login Test</title>
 
         <link href="./semantic.min.css" rel="stylesheet">
-        <link href="./styles/style.css" rel="stylesheet">
 
         <style>
+            * {
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
+
+            html {
+                width: 100%;
+                height: 100%;
+            }
+
+            body {
+                width: 100%;
+                height: 100%;
+                color: #000;
+                background-color: #fff;
+            }
+
+            .container {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-flow: column wrap;
+                align-items: center;
+                justify-content: center;
+            }
+
             #cardbox {
                 width: 395px;
-			}
+            }
 
             #iconImage {
                 display: inline;
@@ -52,25 +78,16 @@
             }
 
             #buttonContainer {
+                padding-top: 0.6em;
                 text-align: right;
             }
-            
-            /* make responsible to both PC and Modile device */
-			@media screen and (min-width: 300px) and (max-width: 375px) {
-  				#cardbox {
-					width: 94%;
-				}
-				
-                #contentsText {
-                    position: relative;
-                    right: 4px;
-                }
 
-				label[id=contentsText] {
-					display:none;
-				}
-			}
-			
+            .ui.button {
+                padding-top: 0.75em;
+                padding-right: 1em;
+                padding-bottom: 0.75em;
+                padding-left: 1em;
+            }
 
         </style>
 

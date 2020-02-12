@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1">
+
+        <title>User List</title>
+
+        <link href="./semantic.min.css" rel="stylesheet">
+
+        <style>
+            * {
+				padding:0;
+				margin:0;
+				box-sizing:border-box;
+			}
+			
+			html {
+				width:100%;
+				height:100%;
+			}
+			
+			body {
+				width:100%;
+				height:100%;
+				color: #000;
+				background-color: #fff;
+			}
+					
+			.container {
+                width: 550px;
+				margin-right: auto;
+				margin-left: auto;
+				padding-left: 20px;
+				padding-right: 20px;
+			}
+
+			#iconImage {
+				display:inline;
+				width:2em;
+				height:2em;
+			}
+			
+			.bottomArea {
+				background-color:rgba(242,248,255,255) !important;
+            }
+            
+            @media screen and (min-width: 300px) and (max-width: 450px) {
+                .container {
+                    width: 90%;
+                }
+            }
+
+        </style>
+
+        <script src="./jquery-3.4.1.min.js"></script>
+        <script src="./semantic.min.js"></script>
+
+    </head>
+    <body>
+
+        <div class="container">
+            <hr>
+            <div class="ui raised segment">
+                
+                <a class="ui blue ribbon label">User List</a>
+                <br><br>
+
+                
+                <div class="ui blue fluid card">
+                    <div class="content">
+                        <div class="header">조미네기</div>
+                        <div class="meta">
+                            <span class="right floated time">22세</span>
+                            <span class="category">박사</span>
+                        </div>
+                        <div class="description">
+                            <br>
+                            <p>항상 나와있지만</p>
+                            <p>사회에 나오고 싶어합니다.</p>
+                        </div>
+                    </div>
+                    <div class="bottomArea extra content">
+                        <div class="right floated author">
+                            <img class="ui avatar image" src="./images/dr_jo.jpg">010-2412-1879
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui blue fluid card">
+                    <div class="content">
+                        <div class="header">흐규흐규</div>
+                        <div class="meta">
+                            <span class="right floated time">22세</span>
+                            <span class="category">친구</span>
+                        </div>
+                        <div class="description">
+                            <br>
+                            <p>순천향 19의 아이도르 입니다.</p>
+                            <p>요즘 뭔가 많이 합니다.</p>
+                        </div>
+                    </div>
+                    <div class="bottomArea extra content">
+                        <div class="right floated author">
+                            <img class="ui avatar image" src="./images/idol_gyu.jpg">010-9334-4179
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </body>
+</html>
