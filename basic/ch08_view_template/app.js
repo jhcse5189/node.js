@@ -42,10 +42,16 @@ var route_loader = require('./routes/route_loader');
 // create express object
 var app = express();
 
+// set view engine
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
+console.log(`set 'view engine' as 'ejs'`);
 
 // set the port as attr. of app obj.
 console.log(`config.server_port: ${config.server_port}`);
 app.set('port', process.env.PORT || 3000);
+
+
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended: false}));

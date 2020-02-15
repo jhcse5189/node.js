@@ -32,12 +32,23 @@ let login = function(req, res) {
                 var username = docs[0].name;
 
                 res.writeHead(200, {'Content-Type': 'text/html; charset=utf8'});
-                res.write(`<h1>Success | login</h1>`);
-                res.write(`<div><p>User ID: ${paramId}</p></div>`);
-                res.write(`<div><p>User Name: ${username}</p></div>`);
-                res.write(`<br><br><a href='/public/login.html'>Login Others</a>`);
-                res.write(`<br><a href='/public/listuser.html'>List Users</a>`);
-                res.end();
+
+                // render using view template
+                var context = {userid: paramId, username: username};
+                req.app.render('login_success', context, function(err, html) {
+                    if (err) {
+                        console.log(`ERROR:) during render login process: ${err.stack}`);
+
+                        res.writeHead(200, {'Content-Type': 'text/html; charset=utf8'});
+                        res.write(`<h1>Error with login success view rendering</h1>`);
+                        res.write(`<p>${err.stack}</p>`);
+                        res.end();
+
+                        return;
+                    }
+                    console.log(`rendered: ${html}`);
+                    res.end(html);
+                });
 
             } else { // if NOT FOUND,
                 res.writeHead(200, {'Content-Type': 'text/html; charset=utf8'});
