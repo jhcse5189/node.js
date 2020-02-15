@@ -144,17 +144,24 @@ let listuser = function(req, res) {
                 console.dir(results);
 
                 res.writeHead(200, {'Content-Type': 'text/html; charset=utf8'});
-                res.write('<h2>User list</h2>');
-                res.write('<div><ul>');
 
-                for (var i = 0; i < results.length; ++i) {
-                    var curId = results[i]._doc.id;
-                    var curName = results[i]._doc.name;
-                    res.write(`<li>#${i}: ${curId}, ${curName}</li>`);
-                }
+                // render using view template
+                var context = {results: results};
+                req.app.render('listuser', context, function(err, html) {
+                    if (err) {
+                        console.log(`ERROR:) during render login process: ${err.stack}`);
 
-                res.write('</ul></div>');
-                res.end();
+                        res.writeHead(200, {'Content-Type': 'text/html; charset=utf8'});
+                        res.write(`<h1>Error with login success view rendering</h1>`);
+                        res.write(`<p>${err.stack}</p>`);
+                        res.end();
+
+                        return;
+                    }
+                    console.log(`rendered: ${html}`);
+                    res.end(html);
+                });
+
             } else {
                 res.writeHead(200, {'Content-Type': 'text/html; charset=utf8'});
                 res.write(`<h2>DB Disconnected</h2>`);
