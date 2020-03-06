@@ -7,7 +7,7 @@
  * http://localhost:3000/public/login.html
  * http://localhost:3000/public/adduser.html
  * 
- * @data 2020-02-08
+ * @data 2020-03-06
  * @author Bammer
  */
 
@@ -44,8 +44,8 @@ var app = express();
 
 // set view engine
 app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
-console.log(`set 'view engine' as 'ejs'`);
+app.set('view engine', 'pug');
+console.log(`set 'view engine' as 'pug'`);
 
 // set the port as attr. of app obj.
 console.log(`config.server_port: ${config.server_port}`);
