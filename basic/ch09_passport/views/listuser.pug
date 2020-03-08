@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    meta(charset="UTF-8")
+    title List User
+  body
+    h1 User List
+    hr
+    div
+      ui
+        - for (var i = 0; i < results.length; ++i) {
+        - var curId = results[i]._doc.id;
+        - var curName = results[i]._doc.name;
+        li #{i}: #{curId}, #{curName}
+        - }
+    br
+    a(href="/public/listuser.html") Re-List
