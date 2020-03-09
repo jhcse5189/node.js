@@ -112,3 +112,6 @@ temp/
 
 # ignore semantic-ui dir via npm
 semantic/
+
+# ignore sensitive text data-set
+Projects/Household-Accounts/data-set.txt
